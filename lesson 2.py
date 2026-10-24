@@ -1,6 +1,5 @@
 import random
 
-
 class Student:
     def __init__(self, name, age):
         self.name = name
@@ -19,7 +18,9 @@ class Student:
 
     def chill(self):
         self.skill = max(0.0, self.skill - 0.5)
-        print("chilling . . . (-0.5 skill)")
+        spent_money = random.randint(5, 15)
+        self.money = max(0, self.money - spent_money)
+        print(f"chilling . . . (-0.5 skill, -{spent_money} money)")
 
     def work(self):
         self.money += 50
@@ -31,13 +32,11 @@ class Student:
         print(f"Money: {self.money}")
         print("-" * 30)
 
-
 alex = Student(name="alex", age=15)
 alex.info()
 
 for day in range(366):
     choice = random.randint(0, 2)
-
     if choice == 0:
         alex.chill()
     elif choice == 1:
